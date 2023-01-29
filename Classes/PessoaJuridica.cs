@@ -12,9 +12,32 @@ namespace aula_2.Classes
 
         public string? razaoSocial {get; set;}
 
-        public override float CalcularImposto(float rendimentos)
+        public override float CalcularImposto(float rendimento)
         {
-            throw new NotImplementedException();
+          if (rendimento <= 3000)
+            {
+             float resultado = rendimento * .03f;
+               return resultado; 
+
+            } else if (rendimento > 3000 && rendimento <= 6000)
+            {
+              float resultado = rendimento  * 0.05f;
+               return resultado;
+
+            }
+            else if (rendimento > 6000 && rendimento <= 10000)
+            {
+                float resultado = rendimento * 0.07f;
+               return resultado; 
+
+            } 
+            else
+            {
+                float resultado = rendimento * 0.09f;
+               return resultado; 
+               
+            }
+                 
         }
 
         public bool ValidarCnpj(string cnpj)
