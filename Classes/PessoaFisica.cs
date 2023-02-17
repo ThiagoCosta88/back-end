@@ -9,11 +9,10 @@ namespace aula_2.Classes
     public class PessoaFisica : Pessoa, IPessoaFisica
     {
         public string? cpf{get; set;}
-
+      
+       
         public DateTime dataNasc {get; set;}
-
-        public string? nomes { get; set;}
-
+     
         public override float CalcularImposto(float rendimento)
         {
             if (rendimento <= 1500)
@@ -40,7 +39,41 @@ namespace aula_2.Classes
 
         public bool ValidarDataNasc(DateTime dataNasc)
         {
-            throw new NotImplementedException();
+            DateTime dataAtual =DateTime.Today;
+
+            double anos = (dataAtual - dataNasc).TotalDays / 365 ;
+
+          Console.WriteLine(anos);
+
+          if (anos >= 18)
+          {
+            return true;
+          }
+
+           return false;
+
+        }
+       
+        public bool ValidarDataNasc(string dataNasc)
+        {
+
+           if (DateTime.TryParse(dataNasc, out DateTime dataConvertida) == true)
+           {
+             DateTime dataAtual =DateTime.Today;
+
+            double anos = (dataAtual - dataConvertida).TotalDays / 365 ;
+
+          Console.WriteLine(anos);
+
+          if (anos >= 18)
+          {
+            return true;
+          }
+
+           return false;
+
+           }
+           return false;          
         }
     }
 }
