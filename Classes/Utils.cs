@@ -12,12 +12,25 @@ namespace aula_2.Classes
             Console.Write($"{texto}");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.BackgroundColor = ConsoleColor.White;
-            for (var contador = 0; contador < 10; contador++)
+            for (var contador = 0; contador < 5; contador++)
             {
                 Console.Write($"*"); 
-                Thread.Sleep(1000);    
+                Thread.Sleep(500);    
             }
             Console.ResetColor();
+        }
+
+        public static void VerificarPastaArquivos(string Caminho){
+            string pasta = Caminho.Split("/")[0];
+            if (!Directory.Exists(pasta))
+            {
+                Directory.CreateDirectory(pasta);
+            }
+
+            if (!File.Exists(Caminho))
+            {
+                using (File.Create(Caminho)){}
+            }
         }
     }
 }
