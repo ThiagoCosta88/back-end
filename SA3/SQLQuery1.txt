@@ -1,0 +1,20 @@
+CREATE DATABASE TH88C
+
+USE TH88C
+
+CREATE TABLE Usuarios(
+Usuario INT PRIMARY KEY IDENTITY, Email VARCHAR(100) UNIQUE NOT NULL, Senha VARCHAR(50) NOT NULL)
+
+INSERT INTO Usuarios VALUES ('email@email.com', 123456)
+
+SELECT * FROM Usuarios
+GO
+
+INSERT INTO Usuarios VALUES ('segundo@email.com', 4567)
+
+SELECT Usuario, Email, HASHBYTES ('MD2', Senha) FROM Usuarios
+SELECT Usuario, Email, HASHBYTES ('MD4', Senha) FROM Usuarios
+SELECT Usuario, Email, HASHBYTES ('MD5', Senha) FROM Usuarios
+SELECT Usuario, Email, HASHBYTES ('SHA', Senha) FROM Usuarios
+SELECT Usuario, Email, HASHBYTES ('SHA2_256', Senha) FROM Usuarios
+SELECT Usuario, Email, HASHBYTES ('SHA2_512', Senha) FROM Usuarios
